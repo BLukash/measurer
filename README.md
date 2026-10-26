@@ -17,7 +17,9 @@ uv run python -m src.detect --input path/to/ruler.jpg --output ruler_annotated.j
 Prints the pixels per cm/in and saves the image with detected numbers and the measured segment drawn on it. The output folder must already exist.
 
 ```bash
-Seems that digit detection either works worse on ONNX export or I have too optimistic memories on its performance before. In either way I will update the model used in the near future
+Seems that digit detection either works worse on ONNX export
+or I have too optimistic memories on its performance before.
+In either way I will update the model used in the near future
 ```
 
 ## Acknowledgments and License

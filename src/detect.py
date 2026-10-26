@@ -12,7 +12,7 @@ def get_image_name(path):
 def detect_scale_on_the_image(args, image_path):
     if image_path:
         candidate_segments, pixel_len, all_numbers, numbers_on_one_line = \
-            ScaleDetector.detect_ruler_scale(image_path, args.grouping, args.model_type)
+            ScaleDetector.detect_ruler_scale(image_path, args.model_type)
 
         if not pixel_len:
             print('Not able to detect ruler scale for this image')
@@ -29,8 +29,7 @@ if __name__ == '__main__':
     parser.add_argument('-f', dest='image_paths_file_path')
     parser.add_argument('-s', dest='save_results_file_path')
     parser.add_argument('-v', dest='show_figs')
-    parser.add_argument('-g', dest='grouping', default='cluster')
-    parser.add_argument('-m', dest='model_type', default='v5')
+    parser.add_argument('-m', dest='model_type', default='v7')
 
     args = parser.parse_args()
 

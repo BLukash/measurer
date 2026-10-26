@@ -1,5 +1,5 @@
 # Measurer
-Uses reference object - ruler and homography to get pixel to unit (cm/in/etc.) ratio and measure real distance between any two points on that image.
+Uses reference object - ruler and homography (not there yet) to get pixel to unit (cm/in/etc.) ratio and measure real distance between any two points on that image.
 
 Ruler scale detection is based on my older research, details and some alternative approaches can be found there:
 - [Method of automatic identification of ruler scales on images to solve the problem of estimating the geometric dimensions of certain objects](https://ieeexplore.ieee.org/abstract/document/9916468)

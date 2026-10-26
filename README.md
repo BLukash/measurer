@@ -1,9 +1,19 @@
 # Measurer
-Uses reference object - ruler and homography to get pixel to cm ratio and measure real distance between any two points on that image
+Uses reference object - ruler and homography to get pixel to unit (cm/in/etc.) ratio and measure real distance between any two points on that image
+
+## Usage
+
+Requires [uv](https://docs.astral.sh/uv/). Run from the repo root:
+
+```bash
+uv sync
+uv run python -m src.detect --input path/to/ruler.jpg --output ruler_annotated.jpg
+```
+
+Prints the pixels per cm/in and saves the image with detected numbers and the measured segment drawn on it. The output folder must already exist.
 
 ## Acknowledgments and License
 
-This project utilizes a fine-tuned version of the YOLOv7 architecture based on the original work by [WongKinYiu/yolov7](https://github.com/wongkinyiu/yolov7). 
+This project utilizes a fine-tuned version of the YOLOv7 architecture based on the original work by [WongKinYiu/yolov7](https://github.com/wongkinyiu/yolov7).
 
 In accordance with the upstream repository, this demo software and the accompanying model weights are licensed under the **GNU General Public License v3.0 (GPL-3.0)**. You can find the full license terms in the `LICENSE` file.
-

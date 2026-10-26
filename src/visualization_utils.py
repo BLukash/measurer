@@ -11,17 +11,15 @@ def visualize_scale_detection_results(
         print(segment)
     img = cv2.imread(image_path)
 
-    detected_digits_df = (
-        detected_digits.pandas().xyxy[0].sort_values(by="name").reset_index()
-    )
-    for idx, detection in detected_digits_df.iterrows():
-        xmin = round(detection["xmin"])
-        xmax = round(detection["xmax"])
-        ymin = round(detection["ymin"])
-        ymax = round(detection["ymax"])
+    sorted_digits = sorted(detected_digits, key=lambda digit: int(digit.name))
+    for idx, digit in enumerate(sorted_digits):
+        xmin = round(digit.min_x())
+        xmax = round(digit.max_x())
+        ymin = round(digit.min_y())
+        ymax = round(digit.max_y())
         cv2.putText(
             img,
-            str(detection["name"]),
+            str(digit.name),
             (xmin, ymin - 15),
             fontFace=cv2.FONT_HERSHEY_TRIPLEX,
             fontScale=2,
@@ -31,7 +29,7 @@ def visualize_scale_detection_results(
 
         color = (
             (0, 0, 255)
-            if (idx == 0) or (idx == len(detected_digits_df) - 1)
+            if (idx == 0) or (idx == len(sorted_digits) - 1)
             else (0, 255, 0)
         )
         cv2.rectangle(img, (xmin, ymin), (xmax, ymax), color, 3)
@@ -57,8 +55,4 @@ def visualize_scale_detection_results(
         6,
     )
 
-    cv2.namedWindow("image", cv2.WINDOW_NORMAL)
-    cv2.imshow("image", img)
-
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+    return img

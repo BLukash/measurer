@@ -1,5 +1,7 @@
 import traceback
+
 import numpy as np
+
 
 class Line:
     def __init__(self, a, b):
@@ -7,7 +9,7 @@ class Line:
         self.b = b
 
     def __str__(self):
-        return f'({str(self.a)}), ({str(self.b)})'
+        return f"({self.a!s}), ({self.b!s})"
 
     def equasion(self):
         q = self.b.x - self.a.x
@@ -29,10 +31,10 @@ class Line:
 
         try:
             x = np.linalg.solve(a, b)
-        except Exception:
+        except np.linalg.LinAlgError:
             print(traceback.format_exc())
             return
-        
+
         # to check if true np.allclose(np.dot(a, x), b)
         intersection_x, intersection_y = x
 

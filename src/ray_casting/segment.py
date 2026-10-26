@@ -1,14 +1,13 @@
 import math
 
-from src.ray_casting.point import Point
 from src.ray_casting.line import Line
+from src.ray_casting.point import Point
 
 _eps = 0.001
 _segment_equality_eps = 5
 
 
 class Segment(Line):
-
     def min_x(self):
         return min(self.a.x, self.b.x)
 

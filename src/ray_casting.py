@@ -1,9 +1,10 @@
 import math
+
 import numpy as np
-import sys
 
 _eps = 0.001
 _edge_equality_eps = 5
+
 
 class Point:
     def __init__(self, x, y):
@@ -11,7 +12,8 @@ class Point:
         self.y = y
 
     def __str__(self):
-        return f'x: {self.x}, y: {self.y}'
+        return f"x: {self.x}, y: {self.y}"
+
 
 class Edge:
     def __init__(self, a, b):
@@ -19,7 +21,7 @@ class Edge:
         self.b = b
 
     def __str__(self):
-        return f'({str(self.a)}), ({str(self.b)})'
+        return f"({self.a!s}), ({self.b!s})"
 
     def line_equasion(self):
         q = self.b.x - self.a.x
@@ -95,6 +97,7 @@ class Poly:
     def ray_goes_through(self, other_edge):
         intersected_edges = sum(edge.intersects_with(other_edge) for edge in self.edges)
         return intersected_edges >= 2
+
 
 # Rect should be defined from TopLeft Point
 class Rect(Poly):

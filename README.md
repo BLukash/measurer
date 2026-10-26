@@ -1,5 +1,5 @@
 # Measurer
-Uses reference object - ruler and/or homography to measure anything on the image in real units
+Uses reference object - ruler and homography to get pixel to cm ratio and measure real distance between any two points on that image
 
 ## Acknowledgments and License
 

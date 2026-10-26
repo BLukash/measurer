@@ -1,6 +1,7 @@
 from src.ray_casting.point import Point
 from src.ray_casting.poly import Poly
 
+
 # Rect should be defined from TopLeft Point
 class Rect(Poly):
     def min_x(self):

@@ -2,8 +2,8 @@
 Uses reference object - ruler and homography to get pixel to unit (cm/in/etc.) ratio and measure real distance between any two points on that image.
 
 Ruler scale detection is based on my older research, details and some alternative approaches can be found there:
-[Method of automatic identification of ruler scales on images to solve the problem of estimating the geometric dimensions of certain objects](https://ieeexplore.ieee.org/abstract/document/9916468)
-[ScaleSense: удосконалений метод автоматичного визначення масштабу лінійки на зображеннях для вирішення завдання оцінювання геометричних розмірів певних об'єктів](https://nv.nltu.edu.ua/index.php/journal/article/view/2513)
+- [Method of automatic identification of ruler scales on images to solve the problem of estimating the geometric dimensions of certain objects](https://ieeexplore.ieee.org/abstract/document/9916468)
+- [ScaleSense: удосконалений метод автоматичного визначення масштабу лінійки на зображеннях для вирішення завдання оцінювання геометричних розмірів певних об'єктів](https://nv.nltu.edu.ua/index.php/journal/article/view/2513)
 
 ## Usage
 
@@ -16,8 +16,9 @@ uv run python -m src.detect --input path/to/ruler.jpg --output ruler_annotated.j
 
 Prints the pixels per cm/in and saves the image with detected numbers and the measured segment drawn on it. The output folder must already exist.
 
-[!WARNING]
+```bash
 Seems that digit detection either works worse on ONNX export or I have too optimistic memories on its performance before. In either way I will update the model used in the near future
+```
 
 ## Acknowledgments and License
 

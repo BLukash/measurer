@@ -8,7 +8,6 @@ from src.ray_casting.rect import Rect
 
 class NumberDetector:
     device = torch.device('cpu')
-    # model_v5 = torch.hub.load('ultralytics/yolov5', 'custom', path=YOLO_SAVED_MODELS.BEST_YOLO_V5_MODEL_PATH, force_reload=True)
     model_v7 = torch.hub.load('WongKinYiu/yolov7', 'custom', path_or_model=YOLO_SAVED_MODELS.BEST_YOLO_V7_MODEL_PATH, force_reload=False).to(device)
 
     @staticmethod

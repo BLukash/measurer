@@ -40,28 +40,6 @@ class ScaleDetector:
 
         return segments
 
-    @classmethod
-    def get_segments_within_iqr(cls, candidate_segments):
-        if len(candidate_segments) <= 1:
-            return candidate_segments
-
-        # We need to reshape to be able to compute IQR
-        segment_lengths = cls.get_segments_len(candidate_segments).reshape(-1, 1)
-
-        lower_whisker, upper_whisker = cls.compute_iqr(segment_lengths)
-
-        # Filter segments whose length falls within the whiskers
-        segments_within_iqr = [seg for seg, len_seg in zip(candidate_segments, segment_lengths) 
-                            if lower_whisker <= len_seg <= upper_whisker]
-
-        return segments_within_iqr
-
-    @classmethod
-    def cluster_segments_IQR(cls, candidate_segments):
-        # Identify segments that fall within the IQR
-        segments_within_iqr = cls.get_segments_within_iqr(candidate_segments)
-
-        return segments_within_iqr
 
     @classmethod
     def get_ruler_scale(cls, candidate_segments):
